@@ -1,1 +1,1 @@
-worker: python discord-covid.py
+worker: python covid.py
