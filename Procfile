@@ -1,1 +1,1 @@
-worker: node discord-covid.py
+worker: python discord-covid.py
