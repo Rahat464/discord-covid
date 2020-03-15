@@ -1,10 +1,10 @@
 #IMPORT Modules
-import discord,asyncio,re,requests
+import discord,asyncio,re,requests,boto3
 from bs4 import BeautifulSoup
-from boto.s3.connection import S3Connection
 
 #BOT INFO
-CHANNEL_ID = process.env.CHANNEL_ID #ENTER ID
+bot_token = boto3.resource('BOT_TOKEN')
+id = boto3.resource('CHANNEL_ID')
 client = discord.Client()
 
 #BOOT UP
@@ -78,4 +78,4 @@ async def on_message(message):
 
         await message.channel.send(content=None, embed=uk_embed)
 
-client.run(process.env.BOT_TOKEN)
+client.run(bot_token)
