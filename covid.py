@@ -1,6 +1,7 @@
 #IMPORT Modules
 import discord,asyncio,re,requests
 from bs4 import BeautifulSoup
+from boto.s3.connection import S3Connection
 
 #BOT INFO
 CHANNEL_ID = process.env.CHANNEL_ID #ENTER ID
