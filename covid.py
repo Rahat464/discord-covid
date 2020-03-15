@@ -1,10 +1,10 @@
 #IMPORT Modules
-import discord,asyncio,re,requests,boto3
+import discord,asyncio,re,requests
 from bs4 import BeautifulSoup
 
 #BOT INFO
-bot_token = boto3.resource('BOT_TOKEN')
-id = boto3.resource('CHANNEL_ID')
+BOT_TOKEN = 'Njg0NTI4MDI3NTQzMTQyNDIw.Xl7ahg.uCDyARwKnPa5K3NtWtZKalJMxSw'
+CHANNEL_ID = 684528377474187284
 client = discord.Client()
 
 #BOOT UP
@@ -78,4 +78,4 @@ async def on_message(message):
 
         await message.channel.send(content=None, embed=uk_embed)
 
-client.run(bot_token)
+client.run(BOT_TOKEN)
