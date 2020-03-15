@@ -3,8 +3,7 @@ import discord,asyncio,re,requests
 from bs4 import BeautifulSoup
 
 #BOT INFO
-DISCORD_TOKEN = '' # ENTER TOKEN
-CHANNEL_ID = 0 #ENTER ID
+CHANNEL_ID = process.env.CHANNEL_ID #ENTER ID
 client = discord.Client()
 
 #BOOT UP
@@ -78,4 +77,4 @@ async def on_message(message):
 
         await message.channel.send(content=None, embed=uk_embed)
 
-client.run(DISCORD_TOKEN)
+client.run(process.env.BOT_TOKEN)
