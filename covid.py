@@ -1,9 +1,8 @@
 #IMPORT Modules
 import discord,asyncio,re,requests
 from bs4 import BeautifulSoup
-
 #BOT INFO
-BOT_TOKEN = 'Njg0NTI4MDI3NTQzMTQyNDIw.Xl7ahg.uCDyARwKnPa5K3NtWtZKalJMxSw'
+DISCORD_TOKEN = 'Njg0NTI4MDI3NTQzMTQyNDIw.Xl7ahg.uCDyARwKnPa5K3NtWtZKalJMxSw'
 CHANNEL_ID = 684528377474187284
 client = discord.Client()
 
@@ -13,7 +12,7 @@ print("Now online!")
 @client.event
 async def on_message(message):
     #STATUS
-    await client.change_presence(activity=discord.Game(name='Counting Covid-19 Cases')) #CHANGE STATUS TO ANYTHING
+    await client.change_presence(activity=discord.Game(name='Counting Covid-19 Cases'))
     
     #TOTAL
     if message.content.find("!total") != -1:
@@ -63,19 +62,27 @@ async def on_message(message):
         #STR TO INT
         uk_data[0] = int(re.sub('[^0-9]','', uk_data[0]))
         uk_data[1] = int(re.sub('[^0-9]','', uk_data[1]))
-        uk_data[2] = int(re.sub('[^0-9]','', uk_data[2]))
+        #uk_data[2] = int(re.sub('[^0-9]','', uk_data[2]))
         
         #EMBED
         new_uk_embed = ["","",""]
         new_uk_embed[0] = str(uk_data[0])
         new_uk_embed[1] = str(uk_data[1])
-        new_uk_embed[2] = str(uk_data[2])
+        #new_uk_embed[2] = str(uk_data[2])
         
         uk_embed = discord.Embed(title="__Covid-19 UK Stats__")
-        uk_embed.add_field(name="Total cases:", value=new_uk_embed[0])
-        uk_embed.add_field(name="Total deaths:", value=new_uk_embed[1])
-        uk_embed.add_field(name="Total recoveries:", value=new_uk_embed[2])
+        uk_embed.add_field(name="Cases:", value=new_uk_embed[0])
+        uk_embed.add_field(name="Deaths:", value=new_uk_embed[1])
+        #uk_embed.add_field(name="Total recoveries:", value=new_uk_embed[2])
+        uk_embed.add_field(name="Recoveries:", value="N/A")
 
         await message.channel.send(content=None, embed=uk_embed)
 
-client.run(BOT_TOKEN)
+client.run(DISCORD_TOKEN)
+'''
+TBD: Possible improvements
+- Only fetch stats if more than x minutes has passed. (idk)
+- Schedule program to run at specific time. (idk)
+- Export stats to .txt and import from .txt every hour.
+    - Update and overwrite .txt contents every hour. Improves performace.
+'''
