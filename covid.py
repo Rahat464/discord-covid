@@ -3,7 +3,7 @@ import discord,asyncio,re,requests
 from bs4 import BeautifulSoup
 #BOT INFO
 DISCORD_TOKEN = 'Njg0NTI4MDI3NTQzMTQyNDIw.Xl7ahg.uCDyARwKnPa5K3NtWtZKalJMxSw'
-CHANNEL_ID = 684528377474187284
+CHANNEL_ID = 595280240935436332
 client = discord.Client()
 
 #BOOT UP
