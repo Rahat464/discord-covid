@@ -2,8 +2,8 @@
 import discord,asyncio,re,requests
 from bs4 import BeautifulSoup
 #BOT INFO
-DISCORD_TOKEN = 'Njg0NTI4MDI3NTQzMTQyNDIw.Xl7ahg.uCDyARwKnPa5K3NtWtZKalJMxSw'
-CHANNEL_ID = 595280240935436332
+DISCORD_TOKEN = '' # STRING
+CHANNEL_ID = # INT
 client = discord.Client()
 
 #BOOT UP
@@ -79,10 +79,3 @@ async def on_message(message):
         await message.channel.send(content=None, embed=uk_embed)
 
 client.run(DISCORD_TOKEN)
-'''
-TBD: Possible improvements
-- Only fetch stats if more than x minutes has passed. (idk)
-- Schedule program to run at specific time. (idk)
-- Export stats to .txt and import from .txt every hour.
-    - Update and overwrite .txt contents every hour. Improves performace.
-'''
